@@ -1,5 +1,8 @@
 {
     "login": "your_login",
     "password": "your_password",
-    "host": "your_synology"
+    "host": "your_synology",
+    "cams": {
+        "cam1": "1"
+    }
 }
