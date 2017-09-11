@@ -9,14 +9,15 @@ from logging.handlers import RotatingFileHandler
 from surveillancestation.surveillancestation import Surveillancestation
 
 # Configuration file path
-configurationFile = './config.json'
+location = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
+configurationFile = os.path.join(location, 'config.json')
 
 # Configure logs
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s :: %(levelname)s :: %(message)s')
 
-file_handler = RotatingFileHandler('surveillance-station.log', 'a', 1000000, 1)
+file_handler = RotatingFileHandler(os.path.join(location, 'surveillance-station.log'), 'a', 1000000, 1)
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
