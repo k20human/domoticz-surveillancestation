@@ -94,8 +94,7 @@ def main(argv):
             api_return = api.camera.disable(cam_idxs)
 
             sys.exit(0 if api_return['success'] else 1)
-    except Exception as e:
-        logger.error(e)
+    except Exception:
         sys.exit(1)
     finally:
         # Don't forget to logout
